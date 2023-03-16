@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/menu.css">
+  <link rel="stylesheet" href="./css/books.css">
+  <link rel="stylesheet" href="./css/sort.css">
+  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  <script src="index.js" defer></script>
+  <script src="books.js" defer></script>
+  <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body id="books__body">
+  <section>
+    <nav>
+      <div class="nav__container">
+        <img class="logo" src="assets/Library.svg" alt="">
+        <ul class="nav__links">
+          <li><a href="#" class="nav__link click">Home</a></li>
+          <li><a href="#" class="nav__link click no-cursor">Contact</a></li>
+          <li><a href="#books__main" class="nav__link click nav__link--primary">Books</a></li>
+        </ul>
+        <div class="menu__wrapper">
+          <div class="hamburger" onclick="rotateAnimation()"><div class="hamburger__lines"></div></div>
+          <div class="menu">
+            <div class="menu__div1">
+              <div class="menu__div2">
+                <ul class="menu__list">
+                  <li class="menu__link click"><a onclick="rotateAnimation()" href="#">Home</a></li>
+                  <li class="menu__link click no-cursor"><a class="no-cursor"  href="#">Contact</a></li>
+                  <li class="menu__link click"><a onclick="rotateAnimation()" href="#features">Books</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <main id="books__main">
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="books__header">
+            <h2 class="section__title books__header--title">
+              All <span class="purple">Books</span>
+            </h2>
+            <div class="dropdown click">
+              <input onclick="active()" type="text" class="textbox" placeholder="Sort Books" readonly>
+              <div class="option">
+                <div onclick="filterBooks('Low to High', 'LOW_TO_HIGH')" class="option__item"><ion-icon class="option__item--icon" name="cash-outline"></ion-icon>Low to High</div>
+                <div onclick="filterBooks('High to Low', 'HIGH_TO_LOW')" class="option__item"><ion-icon class="option__item--icon" name="cash-outline"></ion-icon>High to Low</div>
+                <div onclick="filterBooks('Rating', 'RATING')" class="option__item"><ion-icon class="option__item--icon icon-rating" name="star-outline"></ion-icon>Rating</div>
+              </div>
+            </div>
+          </div>
+          <div class="books books__loading">
+            <i class="fas fa-spinner books__loading--spinner"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="row row__column">
+        <img class="logo footer__img" src="./assets/Library.svg" alt="">
+        <ul class="footer__links">
+          <li class="footer__link click">Home</li>
+          <li class="footer__link click no-cursor">About</li>
+          <li class="footer__link click">Books</li>
+          <li class="footer__link click no-cursor">Contact</li>
+        </ul>
+        <div class="copyright">Copyright &copy; 2023 Library</div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

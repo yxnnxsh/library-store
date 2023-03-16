@@ -1,0 +1,149 @@
+
+:root {
+    --overlay-color: rgba(48, 16, 108, 0.85);
+    --menu-speed: 0.75;
+}
+
+.menu__wrapper {
+    display: none;
+    position: relative;
+    top: -24px;
+    /* right: 24px; */
+    z-index: 99999;
+}
+
+.hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    height: 50px;
+    width: 50px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+/* hamburger line (middle) */
+
+.hamburger__lines {
+    position: relative;
+    width: 75%;
+    height: 2px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+/* top and bottom lines */
+.hamburger__lines:before,
+.hamburger__lines:after {
+    content: "";
+    position: absolute;
+    z-index: 99999;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+}
+
+/* moves line down */
+.hamburger__lines:after {
+    top: 10px;
+}
+
+/* menu animation */
+
+.menu__wrapper.active .hamburger__lines {
+    transform: rotate(225deg);
+}
+
+/* turn lines into X */
+
+.menu__wrapper.active .hamburger__lines:before,
+.menu__wrapper.active .hamburger__lines:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+/* rotate on hover */
+.menu__wrapper.active .hamburger:hover .hamburger__lines {
+    transform: rotate(135deg);
+}
+
+
+/* show menu */
+
+.menu__wrapper.active .menu {
+    visibility: visible;
+}
+
+.menu__wrapper.active .menu__div1 {
+    transform: scale(1);
+    /* transition-duration: var(--menu-speed); */
+}
+
+.menu__wrapper.active .menu__div2 {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu__div1 {
+    background: var(--overlay-color);
+    border-radius: 50%;
+    width: 400vw;
+    height: 400vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center; 
+    transform: scale(0);
+    transition: all 0.6s ease;
+}
+
+.menu__div2 {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.menu__link {
+    list-style: none;
+    color: #fff;
+    font-size: 24px;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.menu__link a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+
+@media (max-width: 550px) { 
+    .menu__wrapper {
+        display: block;
+    }
+}
